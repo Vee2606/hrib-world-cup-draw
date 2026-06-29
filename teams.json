@@ -1,0 +1,22 @@
+[
+    {
+        "team":"Argentina",
+        "owner":"John",
+        "status":"in"
+    },
+    {
+        "team":"Brazil",
+        "owner":"Mary",
+        "status":"in"
+    },
+    {
+        "team":"France",
+        "owner":"Peter",
+        "status":"in"
+    },
+    {
+        "team":"Germany",
+        "owner":"Mike",
+        "status":"out"
+    }
+]
