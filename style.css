@@ -1,82 +1,110 @@
+/* ===== GENERAL PAGE STYLE ===== */
 body {
     font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: #e2e8f0;
+    background: #f2f4f8;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    color: #222;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 5px;
+    margin-top: 20px;
 }
 
-h2 {
-    margin-top: 30px;
-    border-left: 5px solid #38bdf8;
-    padding-left: 10px;
+#lastUpdated {
+    text-align: center;
+    color: gray;
+    margin-bottom: 10px;
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-}
-
-/* Team cards */
-.team {
-    background: #1e293b;
+/* ===== LAYOUT (SIDE BY SIDE) ===== */
+.layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
     padding: 15px;
-    margin: 10px 0;
+    overflow-x: auto;
+}
+
+/* ===== EACH COLUMN ===== */
+.column {
+    flex: 1;
+    min-width: 280px;
+    background: white;
+    padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* COLUMN HEADINGS */
+.column h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* ===== TEAM / FIXTURE CARDS ===== */
+.team {
+    background: #ffffff;
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: 0.3s;
+
+    animation: fadeIn 0.3s ease;
 }
 
-/* Hover effect */
-.team:hover {
-    transform: scale(1.02);
-}
-
-/* Status styles */
-.in {
-    border-left: 6px solid #22c55e;
-}
-
-.out {
-    border-left: 6px solid #ef4444;
-    opacity: 0.6;
-}
-
-/* Small text */
+/* OWNER TEXT */
 .owner {
-    font-size: 14px;
-    color: #94a3b8;
-}
-
-.status {
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 8px;
     font-size: 12px;
+    color: gray;
+    margin-top: 4px;
 }
 
-.status.in {
-    background: #14532d;
-    color: #86efac;
+/* STATUS BADGES */
+.status {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.status.out {
-    background: #450a0a;
-    color: #fca5a5;
+/* STATUS COLORS */
+.in {
+    background: #d4f8d4;
+    color: green;
 }
 
-/* Header spacing */
-#lastUpdated {
-    text-align: center;
-    margin-top: 10px;
-    color: #94a3b8;
-    font-size: 13px;
+.out, .eliminated {
+    background: #ffe0e0;
+    color: red;
+}
+
+/* ===== FIXTURES STYLE (slightly different look) ===== */
+#fixtures .team {
+    background: #f9fbff;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
 }
