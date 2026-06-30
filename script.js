@@ -9,19 +9,19 @@ async function loadTeams() {
 
         const rows = data.split("\n").slice(1);
 
-        const activeDiv = document.getElementById("activeTeams");
+        const pendingDiv = document.getElementById("pendingTeams");
+        const qualifiedDiv = document.getElementById("qualifiedTeams");
         const eliminatedDiv = document.getElementById("eliminatedTeams");
 
-        activeDiv.innerHTML = "";
+        pendingDiv.innerHTML = "";
+        qualifiedDiv.innerHTML = "";
         eliminatedDiv.innerHTML = "";
 
         rows.forEach(row => {
-
             const cleanRow = row.replace(/\r/g, "").trim();
             if (!cleanRow) return;
 
             const [team, owner, status] = cleanRow.split(",");
-
             if (!team) return;
 
             const cleanStatus = (status || "").trim().toLowerCase();
@@ -39,8 +39,10 @@ async function loadTeams() {
                 </div>
             `;
 
-            if (cleanStatus === "in") {
-                activeDiv.appendChild(card);
+            if (cleanStatus === "pending") {
+                pendingDiv.appendChild(card);
+            } else if (cleanStatus === "qualified") {
+                qualifiedDiv.appendChild(card);
             } else {
                 eliminatedDiv.appendChild(card);
             }
@@ -65,12 +67,10 @@ async function loadFixtures() {
         fixturesDiv.innerHTML = "";
 
         rows.forEach(row => {
-
             const cleanRow = row.replace(/\r/g, "").trim();
             if (!cleanRow) return;
 
             const [teamA, teamB, date, status] = cleanRow.split(",");
-
             if (!teamA || !teamB) return;
 
             const card = document.createElement("div");

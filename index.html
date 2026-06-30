@@ -10,34 +10,36 @@
 
 <body>
 
-    <h1>🏆 World Cup Draw</h1>
+<h1>🏆 World Cup Draw</h1>
 
-    <p id="lastUpdated"></p>
+<p id="lastUpdated"></p>
 
-    <!-- 🔥 SIDE BY SIDE LAYOUT -->
-    <div class="layout">
+<div class="main-layout">
 
-        <!-- 🟢 STILL IN -->
-        <div class="column">
-            <h2>🟢 Still In</h2>
-            <div id="activeTeams"></div>
-        </div>
+    <div class="left-column">
 
-        <!-- ❌ ELIMINATED -->
-        <div class="column">
-            <h2>❌ Eliminated</h2>
-            <div id="eliminatedTeams"></div>
-        </div>
+        <h2>🟡 Pending</h2>
+        <div id="pendingTeams"></div>
 
-        <!-- 📅 FIXTURES -->
-        <div class="column">
-            <h2>📅 Upcoming Fixtures</h2>
-            <div id="fixtures"></div>
-        </div>
+        <h2>🟢 Qualified</h2>
+        <div id="qualifiedTeams"></div>
+
+        <h2>❌ Eliminated</h2>
+        <div id="eliminatedTeams"></div>
 
     </div>
 
-    <script src="script.js"></script>
+    <div class="right-column">
+
+        <h2>📅 Upcoming Fixtures</h2>
+
+        <div id="fixtures"></div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
